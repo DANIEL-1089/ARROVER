@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <wchar.h>
+#include <Windows.h>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <string.h>
+#include <stdlib.h>
+#include <cstring>
+#include <conio.h>
+#include <iomanip>
+#include <process.h>
+//HIGHWAY
+//This feeling
+
+using namespace std;
+const int LIMIT = 100;
+class safearray {
+private:
+    int arr[LIMIT];
+public:
+    int& operator[](int n) {
+        if (n < 0 || n >= LIMIT) {
+            cout << "\nErroneous index!";
+            exit(1);
+        }
+        return arr[n];
+    }
+};
+
+
+int main()
+{
+    safearray sa1;
+
+    for (int j = 0; j < LIMIT; j++)
+        sa1[j] = j * 10;
+
+    for (int j = 0; j < LIMIT; j++) {
+        int temp = sa1[j];
+        cout << "Element " << j << " equal to " << temp << endl;
+    }
+
+
+    return 0;
+}
